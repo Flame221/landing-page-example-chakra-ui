@@ -1,4 +1,4 @@
-import { Heading, HStack, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react'
+import { Heading, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react'
 import React from 'react'
 import CardFeatures from './MainComponents/CardFeatures'
 import { MdAccessibility } from 'react-icons/md'

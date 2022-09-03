@@ -15,9 +15,8 @@ const CardFeatures = (props) => {
       <Box mb={2} bgColor={'cyan.400'} p={3} borderRadius="20" color={'white'}>
         {props.icon}
       </Box>
-      <Text fontSize='xl' letterSpacing={1} color={'cyan.500'}>{props.title}</Text>
+      <Text fontSize='xl' letterSpacing={1} fontWeight='semibold' color={'cyan.500'}>{props.title}</Text>
       <Text color={'gray.500'}>{props.description}</Text>
-      <Text color={'gray.500'}>{theme.color}</Text>
       
     </Stack>
   )

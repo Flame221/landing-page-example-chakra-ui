@@ -14,7 +14,7 @@ import ContactComponent from './components/Contact/ContactComponent';
 function App() {
   return (
     <VStack p={5}>
-      <Flex w="100%">
+      <Flex w="100%" align={'center'}>
         <Heading ml="8" size="md" fontWeight='semibold' color='cyan.400'>
           Heading
         </Heading>
@@ -35,7 +35,7 @@ function App() {
       <Main></Main>
       <Divider/> 
       <ContactComponent/>
-      
+
     </VStack>
   );
 }
