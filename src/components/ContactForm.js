@@ -1,4 +1,4 @@
-import { Button, FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
+import { Button, FormControl, FormErrorMessage, FormLabel, Input, useToast, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 const isValidEmail = email =>
@@ -7,6 +7,7 @@ const isValidEmail = email =>
     email
   );
 const ContactForm = () => {
+  const toast = useToast()
   const {
     handleSubmit,
     register,
@@ -18,9 +19,18 @@ const ContactForm = () => {
       setTimeout(() => {
         alert(JSON.stringify(values, null, 2))
         resolve()
+        toast({
+          title: 'Account created.',
+          description: "We've created your account for you.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
       }, 3000)
     })
   }
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
   return (
     <form onSubmit={handleSubmit(onSubmit)} >
       <FormControl isInvalid={errors.name} py={{ md: 1 }} >
@@ -54,7 +64,8 @@ const ContactForm = () => {
           {errors.email && errors.email.message}
         </FormErrorMessage>
       </FormControl>
-      <Button p={4} colorScheme='cyan' mt={4} isLoading={isSubmitting} type='submit'>
+      <Button p={4} colorScheme='cyan' mt={4} isLoading={isSubmitting} type='submit'
+        color={isDark ? 'gray.700' : 'white'}>
         Submit
       </Button>
     </form>

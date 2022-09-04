@@ -1,9 +1,11 @@
-import { Button, Divider, Heading, Spacer, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Button, Divider, Heading, Spacer, Stack, Text, useColorMode } from '@chakra-ui/react'
+import React, { useContext } from 'react'
 import {IoMdArrowForward} from 'react-icons/io'
 import { AiFillGithub} from 'react-icons/ai'
 import GithubButtonComponent from './GithubButtonComponent'
+import { MyContext } from '../App'
 export const Header = () => {
+  const isDark = useContext(MyContext);
   return (
     <Stack
       py={{ base: 20, md: 36 }}
@@ -32,7 +34,7 @@ export const Header = () => {
         <Stack direction='row' spacing={3} align={'center'} alignSelf={'center'} >
 
           <Button
-          
+            color={isDark ? 'gray.700' : 'white'}
             p={7}
             colorScheme='cyan'
             rightIcon={<IoMdArrowForward />}
