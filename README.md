@@ -1,8 +1,8 @@
 # Landing Page Pet Project
 
 This project was made using Chakra UI.
-Demo: [Click](landing-project-ddb3e.web.app).
-ALso: [Click](landing-project-ddb3e.firebaseapp.com).
+Demo: [Click](https://landing-project-ddb3e.web.app/).
+Also: [Click](https://landing-project-ddb3e.firebaseapp.com/).
 
 ## Form validation
 
