@@ -46,7 +46,6 @@ export const Header = () => {
             minW={isLargerScreen ? 50 : 300}
             color={isDark ? 'gray.700' : 'white'}
             p={7}
-            fullWidth
             colorScheme='cyan'
             rightIcon={<IoMdArrowForward />}
             onClick={getStartedHandler}
