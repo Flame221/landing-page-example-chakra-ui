@@ -1,11 +1,20 @@
-import { Button, Divider, Heading, Spacer, Stack, Text, useColorMode } from '@chakra-ui/react'
+import { Button, Heading, Stack, Text } from '@chakra-ui/react'
 import React, { useContext } from 'react'
-import {IoMdArrowForward} from 'react-icons/io'
-import { AiFillGithub} from 'react-icons/ai'
+import { IoMdArrowForward } from 'react-icons/io'
+import { ContextQuery, MyContext } from '../App'
 import GithubButtonComponent from './GithubButtonComponent'
-import { MyContext } from '../App'
 export const Header = () => {
   const isDark = useContext(MyContext);
+  const isLargerScreen = useContext(ContextQuery);
+
+  const getStartedHandler = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <Stack
       py={{ base: 20, md: 36 }}
@@ -14,7 +23,7 @@ export const Header = () => {
       >
       <Heading
         as='h1' 
-        size='4xl'
+        size={isLargerScreen ? '4xl' : '3xl'}
         >
         
         Make money from <br/>
@@ -31,13 +40,16 @@ export const Header = () => {
             them loyalty points. Give <br/> back to your loyal readers by granting
             them access to your pre-releases and sneak-peaks.
         </Text>
-        <Stack direction='row' spacing={3} align={'center'} alignSelf={'center'} >
+        <Stack direction={isLargerScreen ? 'row' : 'column'} spacing={3} align={'center'} alignSelf={'center'}>
 
           <Button
+            minW={isLargerScreen ? 50 : 300}
             color={isDark ? 'gray.700' : 'white'}
             p={7}
+            fullWidth
             colorScheme='cyan'
             rightIcon={<IoMdArrowForward />}
+            onClick={getStartedHandler}
             >
             Get Started</Button>
             <GithubButtonComponent/>

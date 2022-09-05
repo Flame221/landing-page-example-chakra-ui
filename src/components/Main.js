@@ -1,20 +1,20 @@
-import { Heading, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react'
-import React from 'react'
-import CardFeatures from './MainComponents/CardFeatures'
-import { MdAccessibility } from 'react-icons/md'
-import { BsFillPaletteFill, BsFillMoonFill, BsFillLightningChargeFill } from 'react-icons/bs'
-import { HiCubeTransparent } from 'react-icons/hi'
+import { Heading, Stack, Text, VStack } from '@chakra-ui/react'
+import React, { useContext } from 'react'
+import { BsFillLightningChargeFill, BsFillMoonFill, BsFillPaletteFill } from 'react-icons/bs'
 import { FaDiscord } from 'react-icons/fa'
+import { HiCubeTransparent } from 'react-icons/hi'
+import { MdAccessibility } from 'react-icons/md'
+import { ContextQuery } from '../App'
+import CardFeatures from './MainComponents/CardFeatures'
 
 const Main = () => {
-  const [isLargerScreen] = useMediaQuery('(min-width: 800px)');
+  const isLargerScreen = useContext(ContextQuery);
 
   return (
     <Stack
       py={{ base: 20, md: 36 }}
       spacing={{ base: 8, md: 14 }}
       width='100%'
-      px={{ base: 20, md: 36 }}
       textAlign={'center'}
       >
         <Heading onClick={() => console.log(isLargerScreen)}>Our ad platform has ad types to meet all <br/> your marketing objectives.</Heading>

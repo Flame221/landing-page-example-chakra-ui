@@ -1,6 +1,7 @@
-import { Button, FormControl, FormErrorMessage, FormLabel, Input, useToast, useColorMode } from '@chakra-ui/react'
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import { Button, FormControl, FormErrorMessage, FormLabel, Input, useColorMode, useToast } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { ContextQuery } from '../App';
 const isValidEmail = email =>
   // eslint-disable-next-line no-useless-escape
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -31,6 +32,9 @@ const ContactForm = () => {
   }
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === 'dark';
+
+  const isLargerScreen = useContext(ContextQuery);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} >
       <FormControl isInvalid={errors.name} py={{ md: 1 }} >
@@ -64,7 +68,7 @@ const ContactForm = () => {
           {errors.email && errors.email.message}
         </FormErrorMessage>
       </FormControl>
-      <Button p={4} colorScheme='cyan' mt={4} isLoading={isSubmitting} type='submit'
+      <Button minW={isLargerScreen ? 50 : 300} p={4} colorScheme='cyan' mt={4} isLoading={isSubmitting} type='submit'
         color={isDark ? 'gray.700' : 'white'}>
         Submit
       </Button>

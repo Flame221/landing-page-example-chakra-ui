@@ -1,6 +1,7 @@
-import { Button, IconButton, useColorMode } from '@chakra-ui/react'
-import React from 'react'
-import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs'
+import { IconButton, useColorMode } from '@chakra-ui/react';
+import React from 'react';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+
 const ChangeThemeComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 

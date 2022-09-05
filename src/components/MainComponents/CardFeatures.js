@@ -1,6 +1,5 @@
-import { Box, IconButton, Stack, Text, useColorMode } from '@chakra-ui/react'
-import React from 'react'
-import theme from '../../theme'
+import { Box, Stack, Text, useColorMode } from '@chakra-ui/react';
+import React from 'react';
 const CardFeatures = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === 'dark';
